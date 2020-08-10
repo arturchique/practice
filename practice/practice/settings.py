@@ -25,7 +25,7 @@ SECRET_KEY = 'yhi8h!wup^_*$05hd*15iw81)1=6_^ihh4kddf198(r=x%)*e='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '167.172.35.61']
 
 
 # Application definition
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
     'PAGINATE_BY': 10
 }
 
@@ -125,3 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
+try:
+    from .local_settings import *
+except ImportError:
+    from .prod_settings import *
