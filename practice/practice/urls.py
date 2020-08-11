@@ -19,7 +19,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
-    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    path('api/v1.0/', include('catalog.urls')),
+    path('', RedirectView.as_view(url='api/v1.0/', permanent=True)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
