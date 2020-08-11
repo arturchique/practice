@@ -9,8 +9,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', '167.172.35.61']
 
 
-STATIC_ROOT = '/home/john/practice/practice/static'
-
+STATIC_ROOT = '/home/john/Practice/practice/static'
 
 
 DATABASES = {
