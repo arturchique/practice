@@ -6,7 +6,7 @@ SECRET_KEY = 'yhi8h!wup^_*$05hd*15iw81)1=6_^ihh4kddf198(r=x%)*e='
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '167.172.35.61']
+ALLOWED_HOSTS = ['127.0.0.1', '161.35.95.197']
 
 
 STATIC_ROOT = '/home/john/Practice/practice/static'
