@@ -60,7 +60,7 @@ def parse_utkonos(page):
     for card in cards:
         try:
             name = card.find('a', class_='goods_caption').text
-            price = card.find('div', class_='goods_price-item').text
+            price = card.find('div', class_='goods_price-item current').text
             json_output[name] = price
         except AttributeError:
             pass
