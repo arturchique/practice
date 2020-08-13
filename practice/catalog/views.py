@@ -88,7 +88,7 @@ def parse_metro(page):
     for card in cards:
         try:
             name = card.find('p', class_='product__title').text
-            price = card.find('div', class_='product__price').text
+            price = card.find('div', class_='product__price').text.replace(u"\n", u"")
             json_output[name] = price
         except AttributeError:
             pass
