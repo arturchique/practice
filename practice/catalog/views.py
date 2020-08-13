@@ -44,9 +44,12 @@ def parse_perekrestok(page):
     json_output = {}
     cards = soup.find_all('div', class_='xf-product')
     for card in cards:
-        name = card.find('a', class_='xf-product-title__link').text.strip('\n ')
-        price = card.find('span', class_='xf-price__rouble').text + card.find('span', class_='xf-price__penny js-price-penny').text.strip('\xa0\u200a')
-        json_output[name] = price
+        try:
+            name = card.find('a', class_='xf-product-title__link').text.strip('\n ')
+            price = card.find('span', class_='xf-price__rouble').text + card.find('span', class_='xf-price__penny js-price-penny').text.strip('\xa0\u200a')
+            json_output[name] = price
+        except AttributeError:
+            pass
     return json_output
 
 
