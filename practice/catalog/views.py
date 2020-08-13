@@ -58,9 +58,12 @@ def parse_utkonos(page):
     json_output = {}
     cards = soup.find_all('div', class_='goods_pos_bottom')
     for card in cards:
-        name = card.find('a', class_='goods_caption').text
-        price = card.find('div', class_='goods_price-item').text
-        json_output[name] = price
+        try:
+            name = card.find('a', class_='goods_caption').text
+            price = card.find('div', class_='goods_price-item').text
+            json_output[name] = price
+        except AttributeError:
+            pass
     return json_output
 
 
@@ -69,9 +72,12 @@ def parse_lavka(page):
     json_output = {}
     cards = soup.find_all('div', class_='DesktopProductItem_content')
     for card in cards:
-        name = card.find('div', class_='DesktopProductItem_name').text + " " + card.find('div', class_='DesktopProductItem_weight').text
-        price = card.find('div', class_='DesktopProductItem_resultPrice').text
-        json_output[name] = price
+        try:
+            name = card.find('div', class_='DesktopProductItem_name').text + " " + card.find('div', class_='DesktopProductItem_weight').text
+            price = card.find('div', class_='DesktopProductItem_resultPrice').text
+            json_output[name] = price
+        except AttributeError:
+            pass
     return json_output
 
 
@@ -80,9 +86,12 @@ def parse_metro(page):
     json_output = {}
     cards = soup.find_all('a', class_='product__link')
     for card in cards:
-        name = card.find('p', class_='product__title').text
-        price = card.find('div', class_='product__price').text
-        json_output[name] = price
+        try:
+            name = card.find('p', class_='product__title').text
+            price = card.find('div', class_='product__price').text
+            json_output[name] = price
+        except AttributeError:
+            pass
     return json_output
 
 
